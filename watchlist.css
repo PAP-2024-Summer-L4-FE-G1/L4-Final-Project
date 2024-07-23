@@ -1,0 +1,30 @@
+.movie-list img {
+  height: 100%;
+  width: 100%;
+}
+
+.scroll {
+    height: 816px;
+}
+
+h1 {
+    font-family: "Crimson Text", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: larger;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h3 {
+    font-family: "Crimson Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size:30px;
+}
