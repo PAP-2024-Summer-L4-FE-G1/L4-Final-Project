@@ -1,18 +1,39 @@
 /* This is for repeated styling across the entire website. */
 
 /* Font classes */
-.crimson-text-regular {
+  .crimson-text-regular {
     font-family: "Crimson Text", serif;
     font-weight: 400;
     font-style: normal;
   }
   
+  .crimson-text-regular-larger {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+  }
+
   .crimson-text-semibold {
     font-family: "Crimson Text", serif;
     font-weight: 600;
     font-style: normal;
   }
   
+  .crimson-text-semibold-enlarged {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+  }
+  
+  .crimson-text-bold-title {
+      font-family: "Crimson Text", serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 40px;
+  }
+
   .crimson-text-bold {
     font-family: "Crimson Text", serif;
     font-weight: 700;
@@ -74,4 +95,32 @@
 
 .lg-img {
     border-radius: 5px 5px 0 0;
+}
+
+/* About Us */
+.person {
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.person img {
+  width: 150px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: -80px
+}
+
+.yellow {
+background-color: #D9C27E;
+}
+
+.brownred {
+  background-color: #BF8069;
+}
+
+.person-text {
+  position: relative;
+  top: -80px
 }
