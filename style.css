@@ -108,14 +108,19 @@
   width: 150px;
   margin: auto;
   display: block;
+  position: relative;
+  top: -80px
 }
 
 .yellow {
 background-color: #D9C27E;
-background-image: linear-gradient(to bottom, white 20%, rgba(0,0,0,0) 20%); 
 }
 
 .brownred {
   background-color: #BF8069;
-  background-image: linear-gradient(to bottom, white 20%, rgba(0,0,0,0) 20%); 
+}
+
+.person-text {
+  position: relative;
+  top: -80px
 }
