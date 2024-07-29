@@ -5,9 +5,17 @@ const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
+      //api access code
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzODViYTQzNmE1Y2QxZWRmMTk2M2E0NmVjZmJkNjc2YSIsIm5iZiI6MTcyMjAyMDcyNi42MzYxNzMsInN1YiI6IjY2YTNlYWM4YjQxYjY1NDY5ZWIxMjRmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BHx470qugTDBzjuyZaAdTl1xlID7qk5lCSNzwhxV6YA'
     }
   };
+
+//testing begin
+localStorage.clear();
+let movie = ["24428", "109088", "14609"];
+let string = JSON.stringify(movie)
+localStorage.setItem("savedMovies", string);
+//testing end
 
 async function getMoveById(id) {
     try {
@@ -18,21 +26,25 @@ async function getMoveById(id) {
     }
 }
 
-function getWatchlist() {
-    let keys = Object.keys(localStorage);
-    let total = Object.keys(localStorage).length;
-    if (total > 0) {
-        for(let key of keys) {
-            let movie = getMoveById(id);
-        }
+async function getWatchlist() {
+    let ids =  JSON.parse(localStorage.getItem("savedMovies"))
+        for(id in ids) {          
+            let movie = await getMoveById(ids[id]);
+            console.log(movie)
+            let movieDate = movie.release_date;
+            let movieYear = movieDate.slice(0,4);
+            let movieTitle = movie.title;
+            let movieGenres = movie.genres[0];
+            let movieGenre = movieGenres.name;
+            let movieLength = movie.runtime;
+            let movieImage;
+            loadMovieToList(myWatchList, false, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage)
     }
 }
 
 function loadMovieToList(list, front, movieNameDate, movieGenreAgeRating, movieImage) {
     //get movie info
-    let movieNameDate = "Fight Club (1999)";
-    let movieGenreAgeRating = "Action. Rated R"
-    let movieImage = "images/test2.jpg"
+    movieImage = "images/test2.jpg"
     //create li
     let movieToAdd = document.createElement('li');
     movieToAdd.id = "Movie Title";
@@ -56,13 +68,5 @@ function loadMovieToList(list, front, movieNameDate, movieGenreAgeRating, movieI
     
 }
 
-//testing
-
-let list = [1, 2, 3, 4];
-let movieobjects = list.map(getMoveById);
-let x = 0 
-while (x < 10) {
-    loadMovieToList(myWatchList, false)
-    x++;
-}
-
+ //testing
+getWatchlist();
