@@ -37,23 +37,21 @@ async function getWatchlist() {
             let movieGenres = movie.genres[0];
             let movieGenre = movieGenres.name;
             let movieLength = movie.runtime;
-            let movieImage;
-            loadMovieToList(myWatchList, false, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage)
+            let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+            loadMovieToList(myWatchList, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage)
     }
 }
 
-function loadMovieToList(list, front, movieNameDate, movieGenreAgeRating, movieImage) {
-    //get movie info
-    movieImage = "images/test2.jpg"
+function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
     //create li
     let movieToAdd = document.createElement('li');
-    movieToAdd.id = "Movie Title";
+    movieToAdd.id = movieId;
     //put content of li
     movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-24 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
             <h1 class="mt-5 ml-2">${movieNameDate}</h1>
-            <h2 class="ml-2">${movieGenreAgeRating}</h2>
+            <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
             <img class="rounded-md"src="${movieImage}">
