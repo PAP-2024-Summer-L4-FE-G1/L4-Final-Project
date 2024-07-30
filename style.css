@@ -1,6 +1,5 @@
 /* This is for repeated styling across the entire website. */
 
-<<<<<<< HEAD
 
 /* Movie box container */
 .movie-box {
@@ -44,7 +43,7 @@
 .movie-container:hover .movie-details {
     transform: translateY(0);
 }
-=======
+
 
 /* Font classes */
   .crimson-text-regular {
