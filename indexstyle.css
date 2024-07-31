@@ -30,13 +30,13 @@
 .lg-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.lg-btn {
+.lg-btns {
     margin-top: auto;
     padding-right: 25px;
     padding-bottom: 15px;    
 }
 
-button {
+.lg-btn {
     background-color: transparent;
     position: relative;
     border:2px solid #8C443E;
@@ -45,9 +45,10 @@ button {
     display: inline-block;
     border-radius: 20px;
     height: 35px;
-    width: 90px;
+    padding-left: 1em;
+    padding-right: 1em;
 }
-button:hover {
+.lg-btn:hover {
     box-shadow: 0 8px 16px 0 #8C443E;
 }
 #add-list {
