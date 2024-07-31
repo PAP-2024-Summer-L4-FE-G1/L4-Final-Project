@@ -20,15 +20,15 @@
     <div class="movie-list flex justify-center justify-around mt-10">
         <div class="w-96">
             <h3 class="underline underline-offset-2">Recently Watched</h3>
-            <ul class="none mt-5">
+            <ul class="none mt-5" id="recent">
                 <li>
-                    <div class = "flex flex-row h-24 mb-10 border-2 border-black rounded-md">
-                        <div class="basis-3/4 bg-indigo-500">
+                    <div class = "flex flex-row h-24 mb-10">
+                        <div class="basis-3/4 movie-container rounded-md">
                             <h1 class="mt-5 ml-2">Fight Club (1999)</h1>
                             <h2 class="ml-2">Action. Rated R</h2>
                         </div>
                         <div class="basis-1/4">
-                            <img src="images/test.jpg">
+                            <img class="rounded-md" src="images/test.jpg">
                         </div>
                     </div>
                 </li>
@@ -39,15 +39,15 @@
         <div class="w-96">
             <h3 class="underline underline-offset-2">Your list</h3>
             <div class="scroll overflow-y-auto mt-5">
-                <ul class="none">
+                <ul class="none" id="myWatchList">
                     <li>
-                        <div class = "flex flex-row h-24 mb-10 border-2 border-black rounded-md">
-                            <div class="basis-3/4 bg-indigo-500">
+                        <div class = "flex flex-row h-24 mb-10">
+                            <div class="basis-3/4 movie-container rounded-md">
                                 <h1 class="mt-5 ml-2">Fight Club (1999)</h1>
                                 <h2 class="ml-2">Action. Rated R</h2>
                             </div>
                             <div class="basis-1/4">
-                                <img src="images/test.jpg">
+                                <img class="rounded-md" src="images/test.jpg">
                             </div>
                         </div>
                     </li>
@@ -59,15 +59,15 @@
 
         <div class="w-96">
             <h3 class="underline underline-offset-2">Recommended</h3>
-            <ul class="none mt-5">
+            <ul class="none mt-5" id="recommendation">
                 <li>
-                    <div class = "flex flex-row h-24 mb-10 border-2 border-black rounded-md">
-                        <div class="basis-3/4 bg-indigo-500">
+                    <div class = "flex flex-row h-24 mb-10">
+                        <div class="basis-3/4 movie-container rounded-md">
                             <h1 class="mt-5 ml-2">Fight Club (1999)</h1>
                             <h2 class="ml-2">Action. Rated R</h2>
                         </div>
                         <div class="basis-1/4">
-                            <img src="images/test.jpg">
+                            <img class="rounded-md"src="images/test.jpg">
                         </div>
                     </div>
                 </li>
@@ -75,4 +75,5 @@
         </div>
       </div>
 </body>
+<script src ="watchlist.js"></script>
 </html>
