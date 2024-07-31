@@ -10,6 +10,13 @@ const options = {
     }
   };
 
+//testing begin
+localStorage.clear();
+let movie = ["24428", "109088", "14609"];
+let string = JSON.stringify(movie)
+localStorage.setItem("savedMovies", string);
+//testing end
+
 async function getMoveById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '?language=en-US', options);
@@ -21,7 +28,7 @@ async function getMoveById(id) {
 
 async function getWatchlist() {
     let ids = JSON.parse(localStorage.getItem("savedMovies"));
-    for(id in ids) {          
+        for(id in ids) {          
         let movie = await getMoveById(ids[id]);
         let movieYear = movie.release_date.slice(0,4);
         let movieTitle = movie.title;
@@ -38,9 +45,9 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     movieToAdd.id = movieId;
     //put content of li
     movieToAdd.innerHTML += 
-    `<div class = "flex flex-row h-24 mb-10">
+    `<div class = "flex flex-row h-32 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-5 ml-2">${movieNameDate}</h1>
+            <h1 class="mt-7 ml-2">${movieNameDate}</h1>
             <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
