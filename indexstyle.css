@@ -1,0 +1,59 @@
+/* Large Movie Container CSS */
+.lg-container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: right;
+    width: 90%;
+    margin: auto;
+    margin-top: 6%;
+    height: 25em;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.lg-info {
+    position:absolute;
+    bottom: 1em;
+    left: 1em;
+    color: black;
+    padding: 10px;
+    background-color: #f2f2f240;
+}
+
+.lg-desc {
+    max-width: 250px;
+}
+
+.lg-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.lg-btn {
+    margin-top: auto;
+    padding-right: 25px;
+    padding-bottom: 15px;    
+}
+
+button {
+    background-color: transparent;
+    position: relative;
+    border:2px solid #8C443E;
+    color: #8C443E;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 20px;
+    height: 35px;
+    width: 90px;
+}
+button:hover {
+    box-shadow: 0 8px 16px 0 #8C443E;
+}
+#add-list {
+    position:relative;
+    border: none;
+    background-color: #8C443E;
+    color: white;
+    outline-color: #8C443E;
+}
