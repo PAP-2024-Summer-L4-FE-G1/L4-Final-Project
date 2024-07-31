@@ -10,13 +10,6 @@ const options = {
     }
   };
 
-//testing begin
-localStorage.clear();
-let movie = ["24428", "109088", "14609"];
-let string = JSON.stringify(movie)
-localStorage.setItem("savedMovies", string);
-//testing end
-
 async function getMoveById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '?language=en-US', options);
@@ -27,18 +20,15 @@ async function getMoveById(id) {
 }
 
 async function getWatchlist() {
-    let ids =  JSON.parse(localStorage.getItem("savedMovies"))
-        for(id in ids) {          
-            let movie = await getMoveById(ids[id]);
-            console.log(movie)
-            let movieDate = movie.release_date;
-            let movieYear = movieDate.slice(0,4);
-            let movieTitle = movie.title;
-            let movieGenres = movie.genres[0];
-            let movieGenre = movieGenres.name;
-            let movieLength = movie.runtime;
-            let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-            loadMovieToList(myWatchList, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage)
+    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+    for(id in ids) {          
+        let movie = await getMoveById(ids[id]);
+        let movieYear = movie.release_date.slice(0,4);
+        let movieTitle = movie.title;
+        let movieGenre = movie.genres[0].name;
+        let movieLength = movie.runtime;
+        let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+        loadMovieToList(myWatchList, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
     }
 }
 
@@ -66,5 +56,4 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     
 }
 
- //testing
 getWatchlist();
