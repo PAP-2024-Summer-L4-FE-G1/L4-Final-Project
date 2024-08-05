@@ -13,7 +13,7 @@ const options = {
 //testing begin
 localStorage.clear();
 let movie = ["24428", "109088", "14609"];
-let string = JSON.stringify(movie)
+let string = JSON.stringify(movie);
 localStorage.setItem("savedMovies", string);
 //testing end
 
@@ -37,6 +37,9 @@ async function getWatchlist(location, list) {
         let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
         loadMovieToList(list, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
     }
+    if(list == "recommendation") {
+        localStorage.removeItem(location);
+    }
 }
 
 async function getRecommendationsById(id) {
@@ -51,9 +54,17 @@ async function getRecommendationsById(id) {
 async function getRecommendations() {
     let ids = JSON.parse(localStorage.getItem("savedMovies"));
     let mostRecent = ids[0];
-    let movies = getRecommendationsById(mostRecent);
-    console.log(movies)
-    console.log(movies.results)
+    let movies = await getRecommendationsById(mostRecent);
+    let results = movies.results;
+    console.log(movies.results);
+    let recListId = [];
+    for(let i = 0; i < results.length; i++) {
+        recListId.push(results[i].id)
+    }
+    console.log(recListId);
+    let string = JSON.stringify(recListId);
+    localStorage.setItem("savedRecs", string);
+    getWatchlist("savedRecs", recommendation)
 }
 
 function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
