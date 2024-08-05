@@ -17,7 +17,7 @@ let string = JSON.stringify(movie)
 localStorage.setItem("savedMovies", string);
 //testing end
 
-async function getMoveById(id) {
+async function getMovieById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '?language=en-US', options);
         return await reponseMovie.json();
@@ -26,17 +26,34 @@ async function getMoveById(id) {
     }
 }
 
-async function getWatchlist() {
-    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+async function getWatchlist(location, list) {
+    let ids = JSON.parse(localStorage.getItem(location));
         for(id in ids) {          
-        let movie = await getMoveById(ids[id]);
+        let movie = await getMovieById(ids[id]);
         let movieYear = movie.release_date.slice(0,4);
         let movieTitle = movie.title;
         let movieGenre = movie.genres[0].name;
         let movieLength = movie.runtime;
         let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-        loadMovieToList(myWatchList, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
+        loadMovieToList(list, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
     }
+}
+
+async function getRecommendationsById(id) {
+    try {
+        let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '/recommendations', options);
+        return await reponseMovie.json();
+    }catch(error) {
+        console.error(error);
+    }
+}
+
+async function getRecommendations() {
+    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+    let mostRecent = ids[0];
+    let movies = getRecommendationsById(mostRecent);
+    console.log(movies)
+    console.log(movies.results)
 }
 
 function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
@@ -63,4 +80,5 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     
 }
 
-getWatchlist();
+getWatchlist("savedMovies", myWatchList);
+getRecommendations(); 
