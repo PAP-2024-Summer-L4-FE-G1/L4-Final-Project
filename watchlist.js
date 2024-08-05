@@ -35,7 +35,7 @@ async function getWatchlist(location, list) {
         let movieGenre = movie.genres[0].name;
         let movieLength = movie.runtime;
         let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-        loadMovieToList(list, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
+        loadMovieToList(list, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
     }
     if(list == "recommendation") {
         localStorage.removeItem(location);
@@ -56,18 +56,31 @@ async function getRecommendations() {
     let mostRecent = ids[0];
     let movies = await getRecommendationsById(mostRecent);
     let results = movies.results;
-    console.log(movies.results);
     let recListId = [];
     for(let i = 0; i < results.length; i++) {
         recListId.push(results[i].id)
     }
-    console.log(recListId);
     let string = JSON.stringify(recListId);
     localStorage.setItem("savedRecs", string);
     getWatchlist("savedRecs", recommendation)
 }
 
-function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
+async function getMostRecent() {
+    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+    if (ids.length <= 4) {
+        getWatchlist("savedMovies", recent)
+    } else {
+        let recListId = [];
+        for(let j = 0; j <= 4; j++) {
+            recListId.push(ids[j])
+        }
+        let string = JSON.stringify(recListId);
+        localStorage.setItem("recent", string);
+        getWatchlist("recent", recent)
+    }
+}
+
+function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) {
     //create li
     let movieToAdd = document.createElement('li');
     movieToAdd.id = movieId;
@@ -75,7 +88,7 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-32 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-7 ml-2">${movieNameDate}</h1>
+            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-lg font-bold">${movieNameDate}</h1>
             <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
@@ -83,13 +96,10 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
         </div>
     </div>`;
     //insert li into current list
-    if (front) {
-        list.prepend(movieToAdd);
-    } else {
-        list.append(movieToAdd);
-    }
+    list.append(movieToAdd);
     
 }
 
 getWatchlist("savedMovies", myWatchList);
 getRecommendations(); 
+getMostRecent();

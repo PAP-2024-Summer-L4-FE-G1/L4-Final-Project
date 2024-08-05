@@ -3,79 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Watchlist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                fontFamily:  {
+                    "serif": ["Crimson Text"],
+                },
+            }
+          }
+        }
+      </script>
+    <title>Watchlist</title>
     <link rel="stylesheet" href="watchlist.css">
 </head>
+
 <nav>nav bar</nav>
+
 <body>
-
-
     <div class="movie-list flex justify-center justify-around mt-10">
         <div class="w-1/4">
-            <h3 class="underline underline-offset-2">Recently Watched</h3>
-            <ul class="none mt-5" id="recent">
-                <li>
-                    <div class = "flex flex-row h-32 mb-10">
-                        <div class="basis-3/4 movie-container rounded-md">
-                            <h1 class="mt-7 ml-2">Fight Club (1999)</h1>
-                            <h2 class="ml-2">Action. Rated R</h2>
-                        </div>
-                        <div class="basis-1/4">
-                            <img class="rounded-md" src="images/test.jpg">
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <h3 class="underline underline-offset-2 font-['Crimson Text'] text-2xl font-bold">Recently Watched</h3>
+            <ul class="none mt-5" id="recent"></ul>
         </div>
 
-
         <div class="w-1/4">
-            <h3 class="underline underline-offset-2">Your list</h3>
+            <h3 class="underline underline-offset-2 font-['Crimson Text'] text-2xl font-bold">Your list</h3>
             <div class="scroll overflow-y-auto mt-5">
-                <ul class="none" id="myWatchList">
-                    <li>
-                        <div class = "flex flex-row h-32 mb-10">
-                            <div class="basis-3/4 movie-container rounded-md">
-                                <h1 class="mt-7 ml-2">Fight Club (1999)</h1>
-                                <h2 class="ml-2">Action. Rated R</h2>
-                            </div>
-                            <div class="basis-1/4">
-                                <img class="rounded-md" src="images/test.jpg">
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="none" id="myWatchList"></ul>
             </div>
         </div>
 
-
-
         <div class="w-1/4">
-            <h3 class="underline underline-offset-2">Recommended</h3>
+            <h3 class="underline underline-offset-2 font-['Crimson Text'] text-2xl font-bold">Recommended</h3>
             <div class="scroll overflow-y-auto mt-5">
-                <ul class="none" id="recommendation">
-                    <li>
-                        <div class = "flex flex-row h-32 mb-10">
-                            <div class="basis-3/4 movie-container rounded-md">
-                                <h1 class="mt-7 ml-2">Fight Club (1999)</h1>
-                                <h2 class="ml-2">Action. Rated R</h2>
-                            </div>
-                            <div class="basis-1/4">
-                                <img class="rounded-md"src="images/test.jpg">
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="none" id="recommendation"></ul>
             </div>
         </div>
-      </div>
+
+    </div>
 </body>
+
 <script src ="watchlist.js"></script>
+
 </html>
