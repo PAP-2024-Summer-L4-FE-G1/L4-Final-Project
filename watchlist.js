@@ -10,7 +10,14 @@ const options = {
     }
   };
 
-async function getMoveById(id) {
+//testing begin
+localStorage.clear();
+let movie = ["24428", "109088", "14609"];
+let string = JSON.stringify(movie);
+localStorage.setItem("savedMovies", string);
+//testing end
+
+async function getMovieById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '?language=en-US', options);
         return await reponseMovie.json();
@@ -19,17 +26,45 @@ async function getMoveById(id) {
     }
 }
 
-async function getWatchlist() {
-    let ids = JSON.parse(localStorage.getItem("savedMovies"));
-    for(id in ids) {          
-        let movie = await getMoveById(ids[id]);
+async function getWatchlist(location, list) {
+    let ids = JSON.parse(localStorage.getItem(location));
+        for(id in ids) {          
+        let movie = await getMovieById(ids[id]);
         let movieYear = movie.release_date.slice(0,4);
         let movieTitle = movie.title;
         let movieGenre = movie.genres[0].name;
         let movieLength = movie.runtime;
         let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-        loadMovieToList(myWatchList, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
+        loadMovieToList(list, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
     }
+    if(list == "recommendation") {
+        localStorage.removeItem(location);
+    }
+}
+
+async function getRecommendationsById(id) {
+    try {
+        let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '/recommendations', options);
+        return await reponseMovie.json();
+    }catch(error) {
+        console.error(error);
+    }
+}
+
+async function getRecommendations() {
+    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+    let mostRecent = ids[0];
+    let movies = await getRecommendationsById(mostRecent);
+    let results = movies.results;
+    console.log(movies.results);
+    let recListId = [];
+    for(let i = 0; i < results.length; i++) {
+        recListId.push(results[i].id)
+    }
+    console.log(recListId);
+    let string = JSON.stringify(recListId);
+    localStorage.setItem("savedRecs", string);
+    getWatchlist("savedRecs", recommendation)
 }
 
 function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
@@ -38,9 +73,9 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     movieToAdd.id = movieId;
     //put content of li
     movieToAdd.innerHTML += 
-    `<div class = "flex flex-row h-24 mb-10">
+    `<div class = "flex flex-row h-32 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-5 ml-2">${movieNameDate}</h1>
+            <h1 class="mt-7 ml-2">${movieNameDate}</h1>
             <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
@@ -56,4 +91,5 @@ function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movie
     
 }
 
-getWatchlist();
+getWatchlist("savedMovies", myWatchList);
+getRecommendations(); 
