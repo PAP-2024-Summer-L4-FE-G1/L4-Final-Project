@@ -17,7 +17,6 @@
     height: 25em;
     padding-top: 15px;
     display:flexbox;
-
     flex-shrink: 0;
   }
 

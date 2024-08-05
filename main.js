@@ -7,24 +7,44 @@ const options = {
     }
   };
 
-async function getMoveBy() {
+async function getMoveBy(topic) {
     try {
-        let reponseMovie = await fetch('https://api.themoviedb.org/movie/1022789-inside-out-2?language=en-US', options);
+        let reponseMovie = await fetch(`https://api.themoviedb.org/3/movie/${topic}`, options);
         return await reponseMovie.json();
     }catch(error) {
         console.error(error);
     }
 }
-async function getMovie() {         
-    let movie = await getMoveBy();
-    let movieTitle = movie.title;
-    let movieLength = movie.runtime;
-    let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-    loadMovie(movieTitle, movieLength + " mins");
+function convert (num) {
+    let hours = Math.floor(num/60);
+    let mins = Math.floor(num-(hours*60));
+    if(hours==1 && mins==1){
+        return `${hours} hr ${mins} min`;
+    } else if(hours==0) {
+        return `${mins} mins`; 
+    } else if (mins==0) {
+        return `${hours} hrs`;
+    } else if (hours==1 && mins!=1) {
+        return `${hours} hr ${mins} mins`;
+    } else {
+        return `${hours} hrs ${mins} mins`;
+    }
 }
-function loadMovie(movieTitle, movieLength) {
-    document.getElementById('body').innerHTML += 
-    `    <div class = "lg-container" style="background-image: url('');"> 
+async function getMovie() {         
+    let response = await getMoveBy('popular');
+    let movieArr = response.results;
+    let movObj = movieArr[Math.floor(Math.random() * 20)];
+    let movie = await getMoveBy(movObj.id);
+    let movieTitle = movie.title;
+    let movieLength = convert(movie.runtime);
+    let movieImage = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+    let movieDesc = movie.overview;
+
+    loadMovie(movieTitle, movieLength, movieImage, movieDesc);
+}
+function loadMovie(movieTitle, movieLength, movieImage, movieDesc) {
+    document.getElementById('lg-movie').innerHTML += 
+    `    <div class = "lg-container" style="background-image: url('${movieImage}');"> 
         <div class="lg-btns">
             <button class="lg-btn" id="age-rating" > PG</button>
             <button class="lg-btn" id="review-rating" > 8.0/10 </button>
@@ -34,9 +54,7 @@ function loadMovie(movieTitle, movieLength) {
             <h1> ${movieTitle} </h1>
             <h3> ${movieLength} </h3>
             <div class="lg-desc">
-            <p> A sequel that features Riley entering puberty and experiencing brand new, 
-                more complex emotions as a result. As Riley tries to adapt to her teenage years, 
-                her old emotions try to adapt to the possibility of being replaced.</p>
+            <p> ${movieDesc}</p>
             </div>
         </div>
     </div>`;

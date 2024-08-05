@@ -15,12 +15,16 @@
 }
 
 .lg-info {
+    display: flex;
     position:absolute;
     bottom: 1em;
     left: 1em;
     color: black;
     padding: 10px;
     background-color: #f2f2f240;
+    max-height: 80%;
+    overflow-y: auto;
+    flex-direction: column;
 }
 
 .lg-desc {
