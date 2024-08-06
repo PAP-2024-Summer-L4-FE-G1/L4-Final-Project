@@ -12,7 +12,6 @@
     overflow:hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-/* changes made by dishita */
     position:relative;
     height: 25em;
     padding-top: 15px;
@@ -21,34 +20,42 @@
   }
 
   
-  .movie-box-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position:center;
+.movie-box-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
  
-  }
+}
   .box {
     height: inherit;
     max-height: 18.5em;
     max-width: 100%;
 
   }
-
-    #movie-title, #movie-length {
+  #top-text {
+    display: flex;
+    flex-direction: column;
+    white-space: pre;
+    overflow: scroll;
+  }
+  #movie-title, #movie-length {
     font-size: 1.1em;
     text-align: left;
     margin-left: 15px;
     margin-top: 10px;
     line-height: 5%;
   }
-    #movie-length {
+  #movie-length {
     font-size: .9em;
     margin-bottom: 20px;
   }
   .movie-box .lg-btns {
-    margin-top: 10px;
-    margin-left: 28px;
-}
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 5%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
   .movie-details {
     position: absolute;
     bottom: 0;
@@ -62,7 +69,7 @@
     transform: translateY(100%);
     transition: transform 0.3s ease;
 }
-#movie-container {
+.med-movie{
     display: flex;
     overflow: auto;
     width: 95%;
@@ -73,7 +80,6 @@
 .movie-box:hover .movie-details {
     transform: translateY(0);
 }
-
 
 /* Font classes */
   .crimson-text-regular {

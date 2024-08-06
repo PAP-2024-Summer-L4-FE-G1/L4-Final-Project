@@ -16,15 +16,17 @@
 
 .lg-info {
     display: flex;
+    max-width: 40%;
+    flex-direction: column;
     position:absolute;
     bottom: 1em;
     left: 1em;
     color: black;
     padding: 10px;
-    background-color: #f2f2f240;
+    background-color: #f2f2f260;
     max-height: 80%;
     overflow-y: auto;
-    flex-direction: column;
+
 }
 
 .lg-desc {
@@ -41,24 +43,20 @@
 }
 
 .lg-btn {
-    background-color: transparent;
-    position: relative;
-    border:2px solid #8C443E;
-    color: #8C443E;
+    position:relative;
+    display: inline-flex;
+    justify-content: center;
+    border: 3px solid #612e29;
+    background-color: #8C443E;
+    color: white;
     font-weight: bold;
-    display: inline-block;
     border-radius: 20px;
     height: 35px;
+    padding-top: .5em;
     padding-left: 1em;
     padding-right: 1em;
+
 }
 .lg-btn:hover {
     box-shadow: 0 8px 16px 0 #8C443E;
-}
-#add-list {
-    position:relative;
-    border: none;
-    background-color: #8C443E;
-    color: white;
-    outline-color: #8C443E;
 }
