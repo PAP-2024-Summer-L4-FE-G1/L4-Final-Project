@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
     <link rel = "stylesheet" href="style.css"> 
     <link rel = "stylesheet" href="indexstyle.css">
 </head>
@@ -12,22 +20,14 @@
     <container id="lg-movie"> 
 
     </container>
-
-    <div id="movie-container"> 
-        <div class="movie-box"> 
-            <p id="movie-title"> Inside Out 2 </p>
-            <p id="movie-length">1h 36m </p>
-            <div style="background-image: url('images/insideout2.jpeg');" class="movie-box-img box"></div>
-            <p class="movie-details">Genre <br> Year <br> <br>A sequel that features Riley entering puberty and experiencing brand new, 
-                more complex emotions as a result. As Riley tries to adapt to her teenage years, 
-                her old emotions try to adapt to the possibility of being replaced. 
-            </p>
-            <div class="lg-btns">
-                 <button class="lg-btn" id="age-rating" > PG</button>
-                <button class="lg-btn" id="review-rating" > 8.0/10 </button>
-                <button class="lg-btn"id="add-list"> Add to list </button>
-            </div>
-        </div> 
+    <h2 class="rows"> Upcoming </h2>
+    <div class="med-movie" id="med-1"> 
+    </div>
+    <h2 class="rows"> Top Rated </h2>
+    <div class="med-movie" id="med-2"> 
+    </div>
+    <h2 class="rows"> Playing Now </h2>
+    <div class="med-movie" id="med-3"> 
     </div>
     <script src="main.js"> </script>
 </body>
