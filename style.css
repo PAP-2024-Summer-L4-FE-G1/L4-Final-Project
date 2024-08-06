@@ -6,6 +6,7 @@
     width: 100%; 
     max-width: 280px; 
     margin: 20px;
+    margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
@@ -13,7 +14,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position:relative;
-    height: 25em;
+    height: 26em;
     padding-top: 15px;
     display:flexbox;
     flex-shrink: 0;
@@ -36,7 +37,7 @@
     display: flex;
     flex-direction: column;
     white-space: pre;
-    overflow: scroll;
+    overflow-x: scroll;
   }
   #movie-title, #movie-length {
     font-size: 1.1em;
@@ -53,8 +54,8 @@
     display: flex;
     justify-content: space-evenly;
     padding-left: 5%;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   .movie-details {
     position: absolute;
@@ -75,7 +76,14 @@
     width: 95%;
     margin: auto;
 }
-
+.rows {
+    background-color: #BF8069;   
+    border-radius: 3px;
+    padding-left: 20px; 
+}
+.movie-box::-webkit-scrollbar-button {
+    visibility: hidden;
+}
 /* Movie details visible on hover */
 .movie-box:hover .movie-details {
     transform: translateY(0);

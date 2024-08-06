@@ -50,21 +50,18 @@ async function getMovie(type) {
         let movObj = movieArr[Math.floor(Math.random() * 20)];
         let movie = await getMoveBy(movObj.id);
         getInfo(movie, await getCertification(movObj.id), 0, 'lg');
-    } else if (type==='med') {
-        let topicsArr = ['upcoming', 'top_rated?language=en-US&page=3&with_genres=36', 'now_playing?language=en-US&page=2&sort_by=.desc'];
-        let movArr = [];
-        let j=0;
-        while(j<=2) {
+    } else if (type==='med-home') {
+        let topicsArr = ['','upcoming', 'top_rated?language=en-US&page=1', 'now_playing?language=en-US&page=1'];
+        for(j=1; j<=3; j++) {
             let response = await getMoveBy(topicsArr[j]);
             let movieArr = response.results;
             let i = 0;
+            console.log(topicsArr[j]);
             while(i<=7) {
                 i++;
                 let movie = await getMoveBy(movieArr[i].id);
-                movArr.push(await movie);
+                getInfo(await movie, await getCertification(await movie.id), j, 'med');
             }
-            movArr.forEach(async(mov)=> {getInfo(await mov, await getCertification(await mov.id), j, 'med');})
-            j++;
         }
     }
 }
@@ -121,4 +118,4 @@ function convert (num) {
     }
 }
 getMovie('lg');
-getMovie('med');
+getMovie('med-home');
