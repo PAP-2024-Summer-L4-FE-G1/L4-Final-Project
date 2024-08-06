@@ -26,22 +26,6 @@ async function getMovieById(id) {
     }
 }
 
-async function getWatchlist(location, list) {
-    let ids = JSON.parse(localStorage.getItem(location));
-        for(id in ids) {          
-        let movie = await getMovieById(ids[id]);
-        let movieYear = movie.release_date.slice(0,4);
-        let movieTitle = movie.title;
-        let movieGenre = movie.genres[0].name;
-        let movieLength = movie.runtime;
-        let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-        loadMovieToList(list, false, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + ". " + movieLength + " mins", movieImage);
-    }
-    if(list == "recommendation") {
-        localStorage.removeItem(location);
-    }
-}
-
 async function getRecommendationsById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '/recommendations', options);
@@ -51,45 +35,70 @@ async function getRecommendationsById(id) {
     }
 }
 
+async function getWatchlist(location, list) {
+    let ids = JSON.parse(localStorage.getItem(location));
+        for(id in ids) {        
+        let movie = await getMovieById(ids[id]);
+        let movieYear = movie.release_date.slice(0,4);
+        let movieTitle = movie.title;
+        let movieGenre = "";
+        if (movie.genres[0] != undefined) {
+            movieGenre = movie.genres[0].name + ". ";
+        }
+        let movieLength = movie.runtime;
+        let movieImage = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+        loadMovieToList(list, movie.id, movieTitle + " ("+ movieYear + ") ", movieGenre + movieLength + " mins", movieImage);
+    }
+    if(list == "recommendation") {
+        localStorage.removeItem(location);
+    }
+}
+
 async function getRecommendations() {
     let ids = JSON.parse(localStorage.getItem("savedMovies"));
-    let mostRecent = ids[0];
+    let mostRecent = ids[Math.floor(Math.random()*(Math.min(ids.length, 6)))];
     let movies = await getRecommendationsById(mostRecent);
     let results = movies.results;
-    console.log(movies.results);
     let recListId = [];
     for(let i = 0; i < results.length; i++) {
         recListId.push(results[i].id)
     }
-    console.log(recListId);
     let string = JSON.stringify(recListId);
     localStorage.setItem("savedRecs", string);
     getWatchlist("savedRecs", recommendation)
 }
 
-function loadMovieToList(list, front, movieId, movieNameDate, movieLength, movieImage) {
-    //create li
+async function getMostRecent() {
+    let ids = JSON.parse(localStorage.getItem("savedMovies"));
+    if (ids.length <= 4) {
+        getWatchlist("savedMovies", recent)
+    } else {
+        let recentListId = [];
+        for(let j = 0; j <= 4; j++) {
+            recentListId.push(ids[j])
+        }
+        let string = JSON.stringify(recentListId);
+        localStorage.setItem("recent", string);
+        getWatchlist("recent", recent)
+    }
+}
+
+function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) {
     let movieToAdd = document.createElement('li');
     movieToAdd.id = movieId;
-    //put content of li
     movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-32 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-7 ml-2">${movieNameDate}</h1>
+            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-lg font-bold pr-9 ">${movieNameDate}</h1>
             <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
             <img class="rounded-md"src="${movieImage}">
         </div>
     </div>`;
-    //insert li into current list
-    if (front) {
-        list.prepend(movieToAdd);
-    } else {
-        list.append(movieToAdd);
-    }
-    
+    list.append(movieToAdd);
 }
 
 getWatchlist("savedMovies", myWatchList);
 getRecommendations(); 
+getMostRecent();
