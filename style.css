@@ -1,5 +1,171 @@
 /* This is for repeated styling across the entire website. */
 
-body {
-    background-color: #F2F2F2;
+
+/* Movie box container */
+.movie-box {
+    width: 100%; 
+    max-width: 280px; 
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow:hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* changes made by dishita */
+    position:relative;
+    height: 25em;
+    padding-top: 15px;
+    display:flexbox;
+    flex-shrink: 0;
+  }
+
+  
+  .movie-box-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+ 
+  }
+  .box {
+    height: inherit;
+    max-height: 18.5em;
+    max-width: 100%;
+
+  }
+
+    #movie-title, #movie-length {
+    font-size: 1.1em;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    line-height: 5%;
+  }
+    #movie-length {
+    font-size: .9em;
+    margin-bottom: 20px;
+  }
+  .movie-box .lg-btns {
+    margin-top: 10px;
+    margin-left: 28px;
 }
+  .movie-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    padding-top: 13px;
+    padding-bottom: 35px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+#movie-container {
+    display: flex;
+    overflow: auto;
+    width: 95%;
+    margin: auto;
+}
+
+/* Movie details visible on hover */
+.movie-box:hover .movie-details {
+    transform: translateY(0);
+}
+
+
+/* Font classes */
+  .crimson-text-regular {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .crimson-text-regular-larger {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+  }
+
+  .crimson-text-semibold {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .crimson-text-semibold-enlarged {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+  }
+  
+  .crimson-text-bold-title {
+      font-family: "Crimson Text", serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 40px;
+  }
+
+  .crimson-text-bold {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .crimson-text-regular-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .crimson-text-semibold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .crimson-text-bold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+/* About Us */
+.person {
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.person img {
+  width: 150px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: -80px
+}
+
+.yellow {
+background-color: #D9C27E;
+}
+
+.brownred {
+  background-color: #BF8069;
+}
+
+.person-text {
+  position: relative;
+  top: -80px
+}
+

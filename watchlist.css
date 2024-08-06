@@ -26,5 +26,9 @@ h3 {
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-size:30px;
+    font-size:25px;
+}
+
+.movie-container {
+    background-color: #FEF7FF;
 }
