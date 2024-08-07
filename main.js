@@ -114,8 +114,6 @@ function convert (num) {
         return `${hours} hrs ${mins} mins`;
     }
 }
-getMovie('lg');
-getMovie('med-home');
 async function getMovie() {         
     let response = await getMoveBy('popular');
     let movieArr = response.results;
@@ -150,9 +148,6 @@ function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieId) {
         
     });
 }
-getMovie();
-list = JSON.parse(localStorage.getItem("savedMovies"));
-console.log(list)
 function prependToCurrentList(e) {
     list = JSON.parse(localStorage.getItem("savedMovies"));
     if(list == null) {
@@ -168,3 +163,6 @@ function prependToCurrentList(e) {
         localStorage.setItem("savedMovies", string)
     }
 }
+
+getMovie('lg');
+getMovie('med-home');
