@@ -36,19 +36,20 @@ async function getMovie() {
     let movObj = movieArr[Math.floor(Math.random() * 20)];
     let movie = await getMoveBy(movObj.id);
     let movieTitle = movie.title;
+    let movieId = movie.id;
     let movieLength = convert(movie.runtime);
     let movieImage = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
     let movieDesc = movie.overview;
 
-    loadMovie(movieTitle, movieLength, movieImage, movieDesc);
+    loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieId);
 }
-function loadMovie(movieTitle, movieLength, movieImage, movieDesc) {
+function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieId) {
     document.getElementById('lg-movie').innerHTML += 
     `    <div class = "lg-container" style="background-image: url('${movieImage}');"> 
         <div class="lg-btns">
             <button class="lg-btn" id="age-rating" > PG</button>
             <button class="lg-btn" id="review-rating" > 8.0/10 </button>
-            <button class="lg-btn"id="add-list"> Add to list </button>
+            <button class="lg-btn addBtn"id="${movieId}"> Add to list </button>
         </div>
         <div class = "lg-info">
             <h1> ${movieTitle} </h1>
@@ -58,5 +59,26 @@ function loadMovie(movieTitle, movieLength, movieImage, movieDesc) {
             </div>
         </div>
     </div>`;
+    document.querySelectorAll('.addBtn').forEach(btn => {
+        btn.addEventListener("click", prependToCurrentList, {once: true});
+        
+    });
 }
 getMovie();
+list = JSON.parse(localStorage.getItem("savedMovies"));
+console.log(list)
+function prependToCurrentList(e) {
+    list = JSON.parse(localStorage.getItem("savedMovies"));
+    if(list == null) {
+        list = [e.target.id];
+        let string = JSON.stringify(list);
+        localStorage.setItem("savedMovies", string)
+    } else if(!list.includes(e.target.id)) {
+        listChanged = [e.target.id];
+        for(id in list) {
+            listChanged.push(list[id]);
+        }
+        let string = JSON.stringify(listChanged);
+        localStorage.setItem("savedMovies", string)
+    }
+}

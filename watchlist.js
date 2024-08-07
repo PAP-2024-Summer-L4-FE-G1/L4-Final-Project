@@ -11,10 +11,10 @@ const options = {
   };
 
 //testing begin
-localStorage.clear();
-let movie = ["24428", "109088", "14609"];
-let string = JSON.stringify(movie);
-localStorage.setItem("savedMovies", string);
+// localStorage.clear();
+// let movie = ["14609", "24428", "109088", "14609", "14609" , "14609", "14609", "14609", "14609", "14609", "14609", "14609"];
+// let string = JSON.stringify(movie);
+// localStorage.setItem("savedMovies", string);
 //testing end
 
 async function getMovieById(id) {
@@ -56,30 +56,34 @@ async function getWatchlist(location, list) {
 
 async function getRecommendations() {
     let ids = JSON.parse(localStorage.getItem("savedMovies"));
-    let mostRecent = ids[Math.floor(Math.random()*(Math.min(ids.length, 6)))];
-    let movies = await getRecommendationsById(mostRecent);
-    let results = movies.results;
-    let recListId = [];
-    for(let i = 0; i < results.length; i++) {
-        recListId.push(results[i].id)
+    if(ids != null) {
+        let mostRecent = ids[Math.floor(Math.random()*(Math.min(ids.length, 6)))];
+        let movies = await getRecommendationsById(mostRecent);
+        let results = movies.results;
+        let recListId = [];
+        for(let i = 0; i < results.length; i++) {
+            recListId.push(results[i].id)
+        }
+        let string = JSON.stringify(recListId);
+        localStorage.setItem("savedRecs", string);
+        getWatchlist("savedRecs", recommendation)
     }
-    let string = JSON.stringify(recListId);
-    localStorage.setItem("savedRecs", string);
-    getWatchlist("savedRecs", recommendation)
 }
 
 async function getMostRecent() {
     let ids = JSON.parse(localStorage.getItem("savedMovies"));
-    if (ids.length <= 4) {
-        getWatchlist("savedMovies", recent)
-    } else {
-        let recentListId = [];
-        for(let j = 0; j <= 4; j++) {
-            recentListId.push(ids[j])
+    if(ids != null) {
+        if (ids.length <= 4) {
+            getWatchlist("savedMovies", recent)
+        } else {
+            let recentListId = [];
+            for(let j = 0; j <= 4; j++) {
+                recentListId.push(ids[j])
+            }
+            let string = JSON.stringify(recentListId);
+            localStorage.setItem("recent", string);
+            getWatchlist("recent", recent)
         }
-        let string = JSON.stringify(recentListId);
-        localStorage.setItem("recent", string);
-        getWatchlist("recent", recent)
     }
 }
 
