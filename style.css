@@ -1,5 +1,32 @@
 /* This is for repeated styling across the entire website. */
+/* Genre Page */
+#genres-list {
+  display: flex;
+  background-color: #d9c27ea1;
+  max-width: 50%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+} 
+#row-1 {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+}
+.genre-btn {
+  font-family: "Playfair Display", serif;
+  font-size: medium;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
+.genre-btn:hover, .genre-btn:focus {
+  color: #8C443E;
+  outline: none;
+  box-shadow: none;
+}
 
 /* Movie box container */
 .movie-box {

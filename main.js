@@ -33,16 +33,14 @@ async function getCertification(movId) {
 function getInfo(movie, certification, row, size) {
     let movieTitle = movie.title;
     let movieLength = convert(movie.runtime);
-    let movieImage = 'https://image.tmdb.org/t/p/w500' + movie.backdrop_path;
+    let movieImage = 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path;
     let movieDesc = movie.overview;
     let movieGenre = movie.genres[0].name;
     let movieYear = movie.release_date.slice(0,4);
     let movieCert = certification;
-    //add variable "movieCert" with certification (e.g. PG, G, R) + add to parameters for loadMovie()
     let movieRating = Math.floor(movie.vote_average*10)/10;
     loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating + "/10", movieCert, row, size);
 }
-
 async function getMovie(type) {     
     if (type==='lg'){
         let response = await getMoveBy('popular');
@@ -65,7 +63,6 @@ async function getMovie(type) {
         }
     }
 }
-
 function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating, movieCert, row, size) {
     if(size==='lg') {
         document.getElementById('lg-movie').innerHTML += 
