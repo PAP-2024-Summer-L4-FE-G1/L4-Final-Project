@@ -1,49 +1,120 @@
 /* This is for repeated styling across the entire website. */
+/* Genre Page */
+#genres-list {
+  display: flex;
+  background-color: #d9c27ea1;
+  max-width: 50%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+} 
+#row-1 {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+}
+.genre-btn {
+  font-family: "Playfair Display", serif;
+  font-size: medium;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
+.genre-btn:hover, .genre-btn:focus {
+  color: #8C443E;
+  outline: none;
+  box-shadow: none;
+}
 
 /* Movie box container */
 .movie-box {
     width: 100%; 
-    max-width: 300px; 
-    margin: 10px;
-    padding: 10px;
+    max-width: 280px; 
+    margin: 20px;
+    margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    overflow: hidden;
+    overflow:hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .movie-box img {
-    width: 100%;
-    height: auto;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    position:relative;
+    height: 26em;
+    padding-top: 15px;
+    display:flexbox;
+    flex-shrink: 0;
   }
 
-  .movie-box h3 {
-    margin: 10px 0;
-    font-size: 1.2em;
-    text-align: center;
+  
+.movie-box-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+ 
+}
+  .box {
+    height: inherit;
+    max-height: 18.5em;
+    max-width: 100%;
+
+  }
+  #top-text {
+    display: flex;
+    flex-direction: column;
+    white-space: pre;
+    overflow-x: scroll;
+  }
+  #movie-title, #movie-length {
+    font-size: 1.1em;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 10px;
+    line-height: 5%;
+  }
+  #movie-length {
+    font-size: .9em;
+    margin-bottom: 20px;
+  }
+  .movie-box .lg-btns {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   .movie-details {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(115, 119, 118, 0.7);
+    background-color: white;
     padding: 10px;
+    padding-top: 13px;
+    padding-bottom: 35px;
     box-sizing: border-box;
     transform: translateY(100%);
     transition: transform 0.3s ease;
 }
-
+.med-movie{
+    display: flex;
+    overflow: auto;
+    width: 95%;
+    margin: auto;
+}
+.rows {
+    background-color: #BF8069;   
+    border-radius: 3px;
+    padding-left: 20px; 
+}
+.movie-box::-webkit-scrollbar-button {
+    visibility: hidden;
+}
 /* Movie details visible on hover */
-.movie-container:hover .movie-details {
+.movie-box:hover .movie-details {
     transform: translateY(0);
 }
-
 
 /* Font classes */
   .crimson-text-regular {
@@ -110,37 +181,6 @@
   font-style: normal;
 }
 
-
-/* Large Movie Container CSS */
-.lg-container {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    max-width: 960px;
-    margin: auto;
-    height: auto;
-    border-radius: 10px;
-    position: relative;
-    color: #F2F2F2;
-    text-align: left;
-}
-
-.lg-info {
-    position:absolute;
-    bottom: 50px;
-    left: 40px;
-    color: black;
-}
-
-.lg-desc {
-    max-width: 250px;
-}
-
-.lg-container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.lg-img {
-    border-radius: 5px 5px 0 0;
-}
 
 /* About Us */
 .person {

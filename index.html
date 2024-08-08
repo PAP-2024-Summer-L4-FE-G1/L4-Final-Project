@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel = "stylesheet" href="indexstyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
     <link rel = "stylesheet" href="style.css"> 
+    <link rel = "stylesheet" href="indexstyle.css">
 </head>
-<nav>nav bar</nav>
+<nav></nav>
 <body>
-    <div class = "lg-container" style="background-image: url('images/insideout2.jpeg');"> <!-----background image added through HTML to ensure ability to change using variables--->
-        <div class="lg-btn">
-            <button id="age-rating" > PG</button>
-            <button id="review-rating" > 8.0/10 </button>
-            <button id="add-list"> Add to list </button>
-        </div>
-        <div class = "lg-info">
-            <h1> Inside Out 2 </h1>
-            <h3> 1h 36m </h3>
-            <div class="lg-desc">
-            <p> A sequel that features Riley entering puberty and experiencing brand new, 
-                more complex emotions as a result. As Riley tries to adapt to her teenage years, 
-                her old emotions try to adapt to the possibility of being replaced.</p>
-            </div>
-        </div>
+    <container id="lg-movie"> 
+
+    </container>
+    <h2 class="rows"> Upcoming </h2>
+    <div class="med-movie" id="med-1"> 
     </div>
+    <h2 class="rows"> Top Rated </h2>
+    <div class="med-movie" id="med-2"> 
+    </div>
+    <h2 class="rows"> Playing Now </h2>
+    <div class="med-movie" id="med-3"> 
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
