@@ -170,3 +170,69 @@ background-color: #D9C27E;
   top: -80px
 }
 
+/* For genre drop down just name it to the genre dropdown id
+#Genre{position: fixed; 
+      z-index: 2; 
+      right: 0; 
+      height: 100%; 
+      background:white; 
+      border-left: 1px solid rgba(255,255,255,0.1); 
+      transition: all 0.4s ease 0s; 
+      transform: transLateX(250px); 
+      }
+*/
+
+/* Genre page*/
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
+.genre-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.genre-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.genre-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 15px);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.genre-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.genre-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.genre-item .item-info {
+  padding: 10px;
+}
+
+.genre-item .item-title {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.genre-item .item-description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+
