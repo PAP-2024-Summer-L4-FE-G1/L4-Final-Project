@@ -1,3 +1,243 @@
+
+/* This is for repeated styling across the entire website. */
+
+
+/* Movie box container */
+.movie-box {
+    width: 100%; 
+    max-width: 300px; 
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .movie-box img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .movie-box h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .movie-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(115, 119, 118, 0.7);
+    padding: 10px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+/* Movie details visible on hover */
+.movie-container:hover .movie-details {
+    transform: translateY(0);
+}
+
+
+/* Font classes */
+  .crimson-text-regular {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .crimson-text-regular-larger {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+  }
+
+  .crimson-text-semibold {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .crimson-text-semibold-enlarged {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+  }
+  
+  .crimson-text-bold-title {
+      font-family: "Crimson Text", serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 40px;
+  }
+
+  .crimson-text-bold {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .crimson-text-regular-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .crimson-text-semibold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .crimson-text-bold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+/* Large Movie Container CSS */
+.lg-container {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 960px;
+    margin: auto;
+    height: auto;
+    border-radius: 10px;
+    position: relative;
+    color: #F2F2F2;
+    text-align: left;
+}
+
+.lg-info {
+    position:absolute;
+    bottom: 50px;
+    left: 40px;
+    color: black;
+}
+
+.lg-desc {
+    max-width: 250px;
+}
+
+.lg-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.lg-img {
+    border-radius: 5px 5px 0 0;
+}
+
+/* About Us */
+.person {
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.person img {
+  width: 150px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: -80px
+}
+
+.yellow {
+background-color: #D9C27E;
+}
+
+.brownred {
+  background-color: #BF8069;
+}
+
+.person-text {
+  position: relative;
+  top: -80px
+}
+
+/* For genre drop down just name it to the genre dropdown id
+#Genre{position: fixed; 
+      z-index: 2; 
+      right: 0; 
+      height: 100%; 
+      background:white; 
+      border-left: 1px solid rgba(255,255,255,0.1); 
+      transition: all 0.4s ease 0s; 
+      transform: transLateX(250px); 
+      }
+*/
+
+/* Genre page*/
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
+.genre-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.genre-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.genre-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 15px);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.genre-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.genre-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.genre-item .item-info {
+  padding: 10px;
+}
+
+.genre-item .item-title {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.genre-item .item-description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+
+
 /* This is for repeated styling across the entire website. */
 /* Genre Page */
 #genres-list {
@@ -209,4 +449,5 @@ background-color: #D9C27E;
   position: relative;
   top: -80px
 }
+
 
