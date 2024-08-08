@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -23,13 +22,45 @@
         }
       </script>
     <title>Watchlist</title>
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="watchlist.css">
 </head>
-
-<nav>nav bar</nav>
-
+<!-- Nav Bar -->
+<header class = "header">
+    <a href = "#" class = "logo">Logo</a>
+    <div class = "searchbar">
+        <form action="#">
+            <div class = "input_search">
+                <input type = "search" placeholder="Find a movie!">
+                <div class="filter"><p>filters▾</p>
+                    <div class = "filterSearch active">
+                        <p class = "option">GenreR</p>
+                        <p class = "option">GenreR</p>
+                        <p class = "option">GenreR</p>
+                    </div>    
+                </div>
+            </div>
+        </form>      
+    </div>
+    <nav class = "navbar">
+        <ul> 
+            <li>
+                <li class="navbar"><a href = "#">Genres▾</a>
+                    <ul class="dropdown">
+                    <li class="navbar"><a href = "#">Genre1</a></li>
+                    <li class="navbar"><a href = "#">Genre2</a></li>
+                    <li class="navbar"><a href = "#">Genre3</a></li>
+            </ul> 
+        </li>
+        <li class="navbar"> <a href ="watchlist.html">Your List</a></li>
+        <li class="navbar"> <a href ="aboutUs.html">About Us</a></li>
+    </nav>
+    </ul>
+</div>
+</header>
+<!-- Watchlist -->
 <body>
-    <div class="movie-list flex justify-center justify-around mt-10">
+    <div class="movie-list flex justify-center justify-around mt-28">
         <div class="w-1/4">
             <h3 class="underline underline-offset-2 font-['Crimson Text'] text-2xl font-bold">Recently Watched</h3>
             <ul class="none mt-5" id="recent"></ul>
@@ -51,9 +82,24 @@
 
     </div>
 </body>
-<!-- <footer class="flex justify-center">
+<footer class="flex justify-center">
     <p>&copy;CFA. All rights reserved.</p>
-</footer> -->
+</footer>
 <script src ="watchlist.js"></script>
+<script>
+    let filter = document.querySelector(".filter")
+    let selected_text = document.querySelector(".filter")
+    let filterSearch = document.querySelector(".filterSearch")
+    // let options = document.querySelectorAll(".filterSearch")
+    
+    filter.onclick = function(){
+        filterSearch.classList.toggle("active");
+    }
+//    array.forEach(element => {
+//     option.onclick = function(){
+//         selected_text.innerHTML = option.innerHTML;
+//     }
+//    });
+</script>
 
 </html>

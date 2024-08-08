@@ -13,7 +13,7 @@ body{
 
 }
 
-ul li{
+ul .navbar{
     display: inline-block;
     position: relative;
 }

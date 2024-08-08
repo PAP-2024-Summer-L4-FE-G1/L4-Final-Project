@@ -11,9 +11,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<nav>nav bar</nav>
+<header class = "header">
+    <a href = "#" class = "logo">Logo</a>
+    <div class = "searchbar">
+        <form action="#">
+            <div class = "input_search">
+                <input type = "search" placeholder="Find a movie!">
+                <div class="filter"><p>filters▾</p>
+                    <div class = "filterSearch active">
+                        <p class = "option">GenreR</p>
+                        <p class = "option">GenreR</p>
+                        <p class = "option">GenreR</p>
+                    </div>    
+                </div>
+            </div>
+        </form>      
+    </div>
+    <nav class = "navbar">
+        <ul> 
+            <li>
+                <li class="navbar"><a href = "#">Genres▾</a>
+                    <ul class="dropdown">
+                    <li class="navbar"><a href = "#">Genre1</a></li>
+                    <li class="navbar"><a href = "#">Genre2</a></li>
+                    <li class="navbar"><a href = "#">Genre3</a></li>
+            </ul> 
+        </li>
+        <li class="navbar"> <a href ="watchlist.html">Your List</a></li>
+        <li class="navbar"> <a href ="aboutUs.html">About Us</a></li>
+    </nav>
+    </ul>
+</div>
+</header>
 <body>
     <div class="text-center mt-32 mb-16">
         <h1 class="crimson-text-bold-title">Why This Website?</h1>
@@ -62,4 +94,24 @@
                 
     </div>
 </body>
+
+<footer class="flex justify-center mt-10">
+    <p>&copy;CFA. All rights reserved.</p>
+</footer>
+<script src ="watchlist.js"></script>
+<script>
+    let filter = document.querySelector(".filter")
+    let selected_text = document.querySelector(".filter")
+    let filterSearch = document.querySelector(".filterSearch")
+    // let options = document.querySelectorAll(".filterSearch")
+    
+    filter.onclick = function(){
+        filterSearch.classList.toggle("active");
+    }
+//    array.forEach(element => {
+//     option.onclick = function(){
+//         selected_text.innerHTML = option.innerHTML;
+//     }
+//    });
+</script>
 </html>

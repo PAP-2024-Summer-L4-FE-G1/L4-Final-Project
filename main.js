@@ -38,8 +38,9 @@ function getInfo(movie, certification, row, size) {
     let movieGenre = movie.genres[0].name;
     let movieYear = movie.release_date.slice(0,4);
     let movieCert = certification;
+    let movieId = movie.id;
     let movieRating = Math.floor(movie.vote_average*10)/10;
-    loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating + "/10", movieCert, row, size);
+    loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating + "/10", movieCert, row, size, movieId);
 }
 async function getMovie(type) {     
     if (type==='lg'){
@@ -63,14 +64,14 @@ async function getMovie(type) {
         }
     }
 }
-function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating, movieCert, row, size) {
+function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating, movieCert, row, size, movieId) {
     if(size==='lg') {
         document.getElementById('lg-movie').innerHTML += 
         `<div class = "lg-container" style="background-image: url('${movieImage}');"> 
             <div class="lg-btns">
                 <button class="lg-btn" id="age-rating" > ${movieCert} </button>
                 <button class="lg-btn" id="review-rating" > ${movieRating} </button>
-                <button class="lg-btn"id="add-list"> Add to list </button>
+                <button class="lg-btn addBtn"id="${movieId}"> Add to list </button>
             </div>
             <div class = "lg-info">
                 <h1> ${movieTitle} </h1>
@@ -94,9 +95,13 @@ function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, m
             <div class="lg-btns">
                 <button class="lg-btn" id="age-rating" > ${movieCert} </button>
                 <button class="lg-btn" id="review-rating" > ${movieRating} </button>
-                <button class="lg-btn"id="add-list"> Add to list </button>
+                <button class="lg-btn addBtn"id="${movieId}"> Add to list </button>
             </div>
         </div>`
+
+        document.querySelectorAll('.addBtn').forEach(btn => {
+            btn.addEventListener("click", prependToCurrentList, {once: true}); 
+        });
     }
 }
 function convert (num) {
@@ -114,5 +119,23 @@ function convert (num) {
         return `${hours} hrs ${mins} mins`;
     }
 }
+function prependToCurrentList(e) {
+    list = JSON.parse(localStorage.getItem("savedMovies"));
+    
+    if(list == null) {
+        list = [e.target.id];
+        let string = JSON.stringify(list);
+        localStorage.setItem("savedMovies", string)
+        console.log("Clicked")
+    } else if(!list.includes(e.target.id)) {
+        listChanged = [e.target.id];
+        for(id in list) {
+            listChanged.push(list[id]);
+        }
+        let string = JSON.stringify(listChanged);
+        localStorage.setItem("savedMovies", string)
+    }
+}
+
 getMovie('lg');
 getMovie('med-home');
