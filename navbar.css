@@ -105,3 +105,50 @@ ul li:hover ul.dropdown{
   .logo h1 {
     font-size: 24px;
   }
+
+.searchbar form .filter p{
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+}
+
+nav .searchbar input{
+    border: none;
+    outline: none;
+    background: rgb(255, 255, 255);
+    height: 100%;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 350px;
+}
+
+.searchbar form .filterSearch{
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    background-color: #8C443E;
+    color: white;
+    padding: 10px;
+    font-size: 0px;
+    opacity: 0;
+    pointer-events: none;
+    margin-top: 1px;
+    border-radius: 5px;
+}
+
+.searchbar form .active{
+    font-size: 25px;
+    opacity: 1;
+    pointer-events: fill;
+}
+
+.searchbar .filterSearch p{
+    margin: 5px 0px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchbar .filterSearch p:hover{
+    background-color:#BF8069
+}
+
