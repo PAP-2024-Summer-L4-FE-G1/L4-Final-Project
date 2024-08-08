@@ -46,7 +46,6 @@
     display:flexbox;
     flex-shrink: 0;
   }
-
   
 .movie-box-img {
   background-repeat: no-repeat;
@@ -81,8 +80,8 @@
     display: flex;
     justify-content: space-evenly;
     padding-left: 5%;
+    padding-bottom: 5%;
     padding-top: 5px;
-    padding-bottom: 5px;
   }
   .movie-details {
     position: absolute;
@@ -94,9 +93,11 @@
     padding-top: 13px;
     padding-bottom: 35px;
     box-sizing: border-box;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-}
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+
+  }
 .med-movie{
     display: flex;
     overflow: auto;
@@ -108,13 +109,13 @@
     border-radius: 3px;
     padding-left: 20px; 
 }
-.movie-box::-webkit-scrollbar-button {
-    visibility: hidden;
-}
+
 /* Movie details visible on hover */
 .movie-box:hover .movie-details {
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
+
 
 /* Font classes */
   .crimson-text-regular {

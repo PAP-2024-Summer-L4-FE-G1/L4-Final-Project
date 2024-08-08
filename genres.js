@@ -61,7 +61,6 @@ function getInfo(movie, certification) {
 async function getMovie() {    
     document.querySelector('#row-1').innerHTML='';
     let genresArr = await getGenres();
-    console.log(genresArr);
     genresArr.genres.forEach((genre) => {
         if(genre.name===currentGenre) {
             currentGenreId = genre.id;
@@ -70,7 +69,7 @@ async function getMovie() {
         let response = await getGenreMovsBy(currentGenreId); 
         let movieArr = response.results;
         let i =0;
-        while(i<movieArr.length) {
+        while(i<movieArr.length-1) {
             i++;
             let movie = await getMoveBy(movieArr[i].id);
             getInfo(await movie, await getCertification(await movie.id), 'med');
