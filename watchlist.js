@@ -93,7 +93,7 @@ function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) 
     movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-32 mb-10">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-lg font-bold pr-9 ">${movieNameDate}</h1>
+            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-xl font-bold pr-9 ">${movieNameDate}</h1>
             <h2 class="ml-2">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
