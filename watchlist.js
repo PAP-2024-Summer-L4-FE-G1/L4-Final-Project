@@ -11,13 +11,6 @@ const options = {
     }
   };
 
-//testing begin
-// localStorage.clear();
-// let movie = ["14609", "24428", "109088"];
-// let string = JSON.stringify(movie);
-// localStorage.setItem("savedMovies", string);
-//testing end
-
 async function getMovieById(id) {
     try {
         let reponseMovie = await fetch('https://api.themoviedb.org/3/movie/' + id + '?language=en-US', options);
@@ -90,14 +83,13 @@ async function getMostRecent() {
 
 function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) {
     let movieToAdd = document.createElement('li');
-    // movieToAdd.id = movieId;
     if(list == myWatchList) {
         movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-32 mb-10" id="${movieId}">
         <div class="basis-3/4 movie-container rounded-md">
             <button class = "xBtn ml-2 mt-1 font-['Crimson Text'] font-bold" id="${movieId}">X</button>
-            <h1 class="mt-2 ml-2 font-['Crimson Text'] text-xl font-bold pr-9 ">${movieNameDate}</h1>
-            <h2 class="ml-2">${movieLength}</h2>
+            <h1 class="mt-1 ml-2 font-['Crimson Text'] text-lg pr-9 ">${movieNameDate}</h1>
+            <h2 class="ml-2 text-base">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
             <img class="rounded-md"src="${movieImage}">
@@ -107,8 +99,8 @@ function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) 
         movieToAdd.innerHTML += 
     `<div class = "flex flex-row h-32 mb-10" id="${movieId}">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-xl font-bold pr-9 ">${movieNameDate}</h1>
-            <h2 class="ml-2">${movieLength}</h2>
+            <h1 class="mt-9 ml-2 font-['Crimson Text'] text-lg pr-9 ">${movieNameDate}</h1>
+            <h2 class="ml-2 text-base">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
             <img class="rounded-md"src="${movieImage}">
