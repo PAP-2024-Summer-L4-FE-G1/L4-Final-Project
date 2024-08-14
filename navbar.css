@@ -44,11 +44,12 @@ ul li:hover ul.dropdown{
 
 .header{
     position:fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     height: 5%;
     width: 100%;
-    padding: 20px 100px;
+    padding: 40px 100px;
     background: #BF8069;
     display: flex;
     justify-content: space-between;
@@ -64,11 +65,7 @@ ul li:hover ul.dropdown{
     margin-left: 40px;
     
 }
-.navbar{
-    position: relative;
-    right: 150px;
-}
-    
+
 
 
 .searchbar{
