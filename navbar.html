@@ -14,19 +14,19 @@
     <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-    
+  <div class = "full">  
     <header class = "header">
-        <a href = "#" class = "logo">Logo</a>
+        <a href = "index.html" class = "logo">Logo</a>
 
         <div class = "searchbar">
-            <form action="#">
+            <form id="form">
                 <div class = "input_search">
-                    <input type = "search" placeholder="Find a movie!">
+                    <input type = "search" id = "search" placeholder="Find a movie!">
                     <div class="filter"><p>filters▾</p>
                         <div class = "filterSearch active">
-                            <p class = "option">GenreR</p>
-                            <p class = "option">GenreR</p>
-                            <p class = "option">GenreR</p>
+                            <p class = "choice">GenreR</p>
+                            <p class = "choice">GenreR</p>
+                            <p class = "choice">GenreR</p>
 
 
                         </div>
@@ -56,19 +56,22 @@
         </ul>
     </header>
     </div>
+</div> 
 </body>
+<script src="searchbar.js"> </script>
 <script>
     let filter = document.querySelector(".filter")
     let selected_text = document.querySelector(".filter")
     let filterSearch = document.querySelector(".filterSearch")
-    let options = document.querySelectorAll(".filterSearch")
+    let choices = document.querySelectorAll(".filterSearch")
     
     filter.onclick = function(){
         filterSearch.classList.toggle("active");
     }
    array.forEach(element => {
-    option.onclick = function(){
+    choice.onclick = function(){
         selected_text.innerHTML = option.innerHTML;
     }
    });
 </script>
+
