@@ -114,8 +114,12 @@ function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) 
 }
 
 clearBtn.addEventListener('click', () => {
-    localStorage.removeItem("savedMovies");
-    location.reload();
+    if(localStorage.getItem("savedMovies") !== null) {
+        if (confirm("Confirm to remove your entire list!") == true) {
+            localStorage.removeItem("savedMovies");
+            location.reload();
+          } 
+    }
 })
 
 function removeFromCurrentList(e) {
