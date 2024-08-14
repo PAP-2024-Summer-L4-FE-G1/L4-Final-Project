@@ -64,8 +64,8 @@ document.getElementById('form').addEventListener("submit", async (e) => {
        /* var searchValue = searchTerm.value; */
         console.log(searchTerm);
         window.location.href = `genre.html?movieName=${searchTerm}`;
-        /*let response =await getMoviesByQuery(searchTerm);
-       /* if (response && response.results.length > 0) {
+        let response =await getMoviesByQuery(searchTerm);
+       /if (response && response.results.length > 0) {
             let movie = response.results[0]; 
             let movieDetails = await getMovieById(movie.id);
             let movieTitle = movieDetails.title;
@@ -76,7 +76,7 @@ document.getElementById('form').addEventListener("submit", async (e) => {
         } else {
             alert('No results found!');
         }
-    */
+    
         }
 
    });
