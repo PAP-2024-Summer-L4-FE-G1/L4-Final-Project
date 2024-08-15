@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <header class = "header">
-    <a href = "#" class = "logo">Logo</a>
+    <a href = "index.html" class = "logo"><img src="images/logo.PNG"></a>
     <div class = "searchbar">
         <form action="#">
             <div class = "input_search">
@@ -47,7 +47,7 @@
 </div>
 </header>
 <body>
-    <div class="text-center mt-32 mb-16">
+    <div class="text-center mt-40 mb-16">
         <h1 class="crimson-text-bold-title">Why This Website?</h1>
     </div>
     <div class="mr-96 ml-96 w-7/12 text-center">
@@ -103,15 +103,9 @@
     let filter = document.querySelector(".filter")
     let selected_text = document.querySelector(".filter")
     let filterSearch = document.querySelector(".filterSearch")
-    // let options = document.querySelectorAll(".filterSearch")
     
     filter.onclick = function(){
         filterSearch.classList.toggle("active");
     }
-//    array.forEach(element => {
-//     option.onclick = function(){
-//         selected_text.innerHTML = option.innerHTML;
-//     }
-//    });
 </script>
 </html>
