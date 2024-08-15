@@ -46,6 +46,9 @@ async function getMoveBy(search) {
         console.error(error);
     }
 }
+
+
+
 //Retrieves all information neccessary about movie and calls loadMovie()
 function getInfo(movie, certification) {
     let movieTitle = movie.title;
@@ -148,4 +151,5 @@ function prependToCurrentList(e) {
         localStorage.setItem("savedMovies", string)
     }
 }
+
 getMovie();

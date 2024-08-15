@@ -1,106 +1,137 @@
-/*{
-    margin:0px;
-    padding:0px;
+/* General reset and body styling */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Crimson Text", serif;
     font-weight: 800;
     font-style: normal;
-    height: 85%;
-}
-  */
-.nav{
-    list-style-type: none;
-    
-
 }
 
-body{
+#main-body {
     min-height: 100vh;
-
+    margin-top: 85px; /* Adjusted for header height */
 }
 
-ul .navbar{
-    display: inline-block;
-    position: relative;
-}
-
-ul li ul.dropdown{
-    width: 100%;
-    position: absolute;
-    z-index: 999;
-    display: none;
-    right: 0px;
-}
-
-ul li a:hover{
-    background:#8C443E;
-
-}
-
-ul li:hover ul.dropdown{
-    display: block;
-}
-
-.header{
-    position:fixed;
-    box-sizing: border-box;
+/* Navigation bar styles */
+.header {
+    position: fixed;
     top: 0;
     left: 0;
-    height: 5%;
+    height: 85px; /* Adjusted header height */
     width: 100%;
-    padding: 40px 100px;
+    padding: 0 100px; /* Adjusted padding */
     background: #BF8069;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    z-index: 1000; /* Ensure header is above all content */
 }
 
-.navbar a{
-    font-size: 18px;
+.logo img {
+    width: 100px; /* Maintain original size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    font-size: 18px; /* Original font size */
     color: black;
     font-weight: 500;
     text-decoration: none;
-    margin-left: 40px;
-    
+    margin-left: 40px; /* Original margin */
+    padding: 10px; /* Original padding */
+    display: inline-block;
 }
 
+.navbar a:hover {
+    background: #8C443E;
+    color: white;
+    border-radius: 5px;
+}
 
+ul li ul.dropdown {
+    width: 200px; /* Original width for dropdown */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #8C443E;
+    border-radius: 5px;
+    padding: 10px 0;
+}
 
-.searchbar{
-    width: 600px;
+ul li:hover ul.dropdown {
+    display: block;
+}
+
+ul li ul.dropdown li {
+    padding: 0;
+}
+
+ul li ul.dropdown a {
+    color: white;
+    padding: 10px 20px; /* Original padding */
+    display: block;
+}
+
+ul li ul.dropdown a:hover {
+    background-color: #BF8069;
+}
+
+/* Search bar styles */
+.searchbar {
+    width: 600px; /* Original width */
     background-color: white;
     border-radius: 10px;
-    
-    
 }
 
-.searchbar form .input_search{
+.searchbar form .input_search {
     width: 100%;
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.searchbar form .input_search input{
+.searchbar form .input_search input {
     width: 100%;
-    font-size: 15px;
+    font-size: 15px; /* Original font size */
     padding: 5px 15px;
     border: none;
     outline: none;
 }
 
-.searchbar form .filter{
+.searchbar form .filter {
     background-color: #8C443E;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Original padding */
     border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     height: 100%;
-    margin-top: 0%;
+    margin-top: 0;
 }
 
+.searchbar form .filter p {
+    font-size: 15px; /* Original font size */
+}
 /* logo bar   */
 .logo-img {
     width:100px;
@@ -126,44 +157,39 @@ ul li:hover ul.dropdown{
     color: rgb(255, 255, 255);
 }
 
-nav .searchbar input{
-    border: none;
-    outline: none;
-    background: rgb(255, 255, 255);
-    height: 100%;
-    padding: 0 10px;
-    font-size: 20px;
-    width: 350px;
-}
-
-.searchbar form .filterSearch{
+.searchbar form .filterSearch {
     position: absolute;
     top: 100%;
-    right: 0px;
+    right: 0;
     background-color: #8C443E;
     color: white;
     padding: 10px;
-    font-size: 0px;
+    font-size: 0; /* Hides text initially */
     opacity: 0;
     pointer-events: none;
     margin-top: 1px;
     border-radius: 5px;
 }
 
-.searchbar form .active{
+.searchbar form .active {
     font-size: 25px;
     opacity: 1;
     pointer-events: fill;
 }
 
-.searchbar .filterSearch p{
-    margin: 5px 0px;
+.searchbar .filterSearch p {
+    margin: 5px 0;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.searchbar .filterSearch p:hover{
-    background-color:#BF8069
+.searchbar .filterSearch p:hover {
+    background-color: #BF8069;
 }
 
+/* Additional styling for the main content */
+#row-1 {
+    margin-top: 20px; /* Adjust as needed to avoid overlap with header */
+    padding: 20px;
+}

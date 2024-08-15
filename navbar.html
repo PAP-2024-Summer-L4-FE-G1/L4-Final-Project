@@ -4,67 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>navbar</title>
+    <title>Navbar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
 </head>
-<body>
-  <div class = "full">  <div>
-    <header class = "header">
-     <a href = "index.html" class = "logo"><img src = "images/movierealm.jpg"></a>
-        
-
-        <div class = "searchbar">
-            <form id="form">
-                <div class = "input_search">
-                    <input type = "search" placeholder="Find a movie!">
-                    <div class="filter"><p>filters▾</p>
-                        <div class = "filterSearch active">
-                            <p class = "option">GenreR</p>
-                            <p class = "option">GenreR</p>
-                            <p class = "option">GenreR</p>
-                        </div>    
-                    </div>
-                </div>
-            </form>      
-        </div>
-        <nav class = "navbar">
-            <ul> 
-                    <li class="navbar"><a href = "#">Genres▾</a>
-                        <ul class="dropdown">
-                        <li class="navbar"><a href = "#">Genre1</a></li>
-                        <li class="navbar"><a href = "#">Genre2</a></li>
-                        <li class="navbar"><a href = "#">Genre3</a></li>
-                </ul> 
-            </li>
-            <li class="navbar"> <a href ="watchlist.html">Your List</a></li>
-            <li class="navbar"> <a href ="aboutUs.html">About Us</a></li>
-        </nav>
-        </ul>
-    </div>
-    </header>
-    </div>
- 
-</body>
-<script src="searchbar.js"> </script>
-<script>
-    let filter = document.querySelector(".filter")
-    let selected_text = document.querySelector(".filter")
-    let filterSearch = document.querySelector(".filterSearch")
-    let choices = document.querySelectorAll(".filterSearch")
+<body id="main-body">
+    <nav> <header class = "header">
+        <a href = "index.html" class = "logo"><img src = "images/movierealm.jpg"></a>
+           
     
-    filter.onclick = function(){
-        filterSearch.classList.toggle("active");
-    }
-   array.forEach(element => {
-    choice.onclick = function(){
-        selected_text.innerHTML = option.innerHTML;
-    }
-   });
-</script>
-
+           <div class = "searchbar">
+               <form id="form">
+                   <div class = "input_search">
+                       <input type = "search" id = "search" placeholder="Find a movie!">
+                       <div class="filter"><p>filters▾</p>
+                           <div class = "filterSearch">
+                            <button class="genre-btn" autofocus>Action</button>
+                            <button class="genre-btn">Adventure</button>
+                            <button class="genre-btn">Animation</button>
+                            <button class="genre-btn">Biography</button>
+                            <button class="genre-btn">Comedy</button>
+                            <button class="genre-btn">Crime</button>
+                            <button class="genre-btn">Documentary</button>
+                            <button class="genre-btn">Drama</button>
+                            <button class="genre-btn">Family</button>
+                            <button class="genre-btn">Fantasy</button>
+                            <button class="genre-btn">Film-Noir</button>
+                            <button class="genre-btn">Game-Show</button>
+                            <button class="genre-btn">History</button>
+                            <button class="genre-btn">Horror</button>
+                            <button class="genre-btn">Music</button>
+                            <button class="genre-btn">Mystery</button>
+                            <button class="genre-btn">Romance</button>
+                            <button class="genre-btn">Science Fiction</button>
+                            <button class="genre-btn">TV Movie</button>
+                            <button class="genre-btn">Thriller</button>
+                            <button class="genre-btn">War</button>
+                            <button class="genre-btn">Western</button>
+                           </div>    
+                       </div>
+                   </div>
+               </form>      
+           </div>
+           <nav class = "navbar">
+               <ul> 
+                       <li class="navbar"><a href = "#">Genres▾</a>
+                           <ul class="dropdown">
+                           
+                   </ul> 
+               </li>
+               <li class="navbar"> <a href ="watchlist.html">Your List</a></li>
+               <li class="navbar"> <a href ="aboutUs.html">About Us</a></li>
+           </nav>
+           </ul>
+       </div>
+       </header>
+       </div></nav>
+    </header>
+    <script src="searchbar.js"></script>
+    <script src = "results.js"></script>
+</body>
+</html>
