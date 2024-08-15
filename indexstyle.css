@@ -91,3 +91,53 @@ p {
     color: white;
     outline-color: #8C443E;
 }
+
+/* Notification */
+header {
+    position: relative; 
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+  
+  .notify-container {
+    position: fixed; 
+    top: 10px; 
+    right: 10px; 
+    z-index: 1000; 
+  }
+  
+  .notify-icon {
+    font-size: 24px; 
+    vertical-align: middle; 
+  }
+  
+  .notification {
+    position: absolute;
+    top: -10px; 
+    right: -10px; 
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 9px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  
+  
+  @media (max-width: 600px) {
+    .notify-container {
+      top: 5px; 
+      right: 5px; 
+    }
+  
+    .notification {
+      top: -5px; 
+      right: -5px; 
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
