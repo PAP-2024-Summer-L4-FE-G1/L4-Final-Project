@@ -31,6 +31,7 @@ p {
     justify-content: right;
     width: 95%;
     margin: auto;
+    margin-top: 90px;
     margin-bottom: 2%;
     height: 30em;
     position: relative;
@@ -141,3 +142,4 @@ header {
       padding: 4px 8px;
     }
   }
+
