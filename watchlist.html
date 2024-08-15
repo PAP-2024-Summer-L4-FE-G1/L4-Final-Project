@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="watchlist.css">
 </head>
+
 <!-- Nav Bar -->
 <header class="header">
     <a href="index.html" class="logo"><img src="images/movierealm.jpg" alt="Movie Realm Logo"></a>
@@ -59,9 +60,10 @@
         </ul>
     </nav>
 </header>
+
 <!-- Watchlist -->
 <body>
-    <div class="movie-list flex justify-center justify-around mt-28">
+    <div class="movie-list flex justify-center justify-around mt-40">
         <div class="w-1/4">
             <h3 class="underline underline-offset-2 font-['Crimson Text'] text-2xl font-bold">Recently Watched</h3>
             <ul class="none mt-5" id="recent"></ul>
@@ -72,7 +74,7 @@
             <div class="scroll overflow-y-auto mt-5">
                 <ul class="none" id="myWatchList"></ul>
             </div>
-            <button class="font-['Crimson Text'] font-bold" id="clear">Clear All</button>
+            <button class="font-['Crimson Text'] font-bold mt-5 p-2 rounded-xl border-2" id="clear">Clear All</button>
         </div>
 
         <div class="w-1/4">
@@ -84,9 +86,9 @@
 
     </div>
 </body>
-<!-- <footer class="flex justify-center">
+<footer class="flex justify-center mt-5 mb-1">
     <p>&copy;CFA. All rights reserved.</p>
-</footer> -->
+</footer>
 <script src ="watchlist.js"></script>
 <script src = "searchbar.js"></script>
 </html>

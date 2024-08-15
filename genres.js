@@ -65,7 +65,6 @@ function getInfo(movie, certification) {
 async function getMovie() {    
     document.querySelector('#row-1').innerHTML='';
     let genresArr = await getGenres();
-    console.log(genresArr);
     genresArr.genres.forEach((genre) => {
         if(genre.name===currentGenre) {
             currentGenreId = genre.id;
