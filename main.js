@@ -120,7 +120,7 @@ function convert (num) {
     }
 }
 function prependToCurrentList(e) {
-    list = JSON.parse(localStorage.getItem("savedMovies"));
+    let list = JSON.parse(localStorage.getItem("savedMovies"));
     
     if(list == null) {
         list = [e.target.id];

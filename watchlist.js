@@ -1,6 +1,7 @@
 const recent = document.getElementById('recent');
 const myWatchList = document.getElementById('myWatchList');
 const recommendation = document.getElementById('recommendation');
+const clearBtn = document.getElementById('clear');
 const options = {
     method: 'GET',
     headers: {
@@ -9,13 +10,6 @@ const options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzODViYTQzNmE1Y2QxZWRmMTk2M2E0NmVjZmJkNjc2YSIsIm5iZiI6MTcyMjAyMDcyNi42MzYxNzMsInN1YiI6IjY2YTNlYWM4YjQxYjY1NDY5ZWIxMjRmZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BHx470qugTDBzjuyZaAdTl1xlID7qk5lCSNzwhxV6YA'
     }
   };
-
-//testing begin
-// localStorage.clear();
-// let movie = ["14609", "24428", "109088", "14609", "14609" , "14609", "14609", "14609", "14609", "14609", "14609", "14609"];
-// let string = JSON.stringify(movie);
-// localStorage.setItem("savedMovies", string);
-//testing end
 
 async function getMovieById(id) {
     try {
@@ -89,18 +83,51 @@ async function getMostRecent() {
 
 function loadMovieToList(list, movieId, movieNameDate, movieLength, movieImage) {
     let movieToAdd = document.createElement('li');
-    movieToAdd.id = movieId;
-    movieToAdd.innerHTML += 
-    `<div class = "flex flex-row h-32 mb-10">
+    if(list == myWatchList) {
+        movieToAdd.innerHTML += 
+    `<div class = "flex flex-row h-32 mb-10" id="${movieId}">
         <div class="basis-3/4 movie-container rounded-md">
-            <h1 class="mt-7 ml-2 font-['Crimson Text'] text-lg font-bold pr-9 ">${movieNameDate}</h1>
-            <h2 class="ml-2">${movieLength}</h2>
+            <button class = "xBtn ml-2 mt-1 font-['Crimson Text'] font-bold" id="${movieId}">X</button>
+            <h1 class="mt-1 ml-2 font-['Crimson Text'] text-lg pr-9 ">${movieNameDate}</h1>
+            <h2 class="ml-2 text-base">${movieLength}</h2>
         </div>
         <div class="basis-1/4">
             <img class="rounded-md"src="${movieImage}">
         </div>
     </div>`;
+    } else {
+        movieToAdd.innerHTML += 
+    `<div class = "flex flex-row h-32 mb-10" id="${movieId}">
+        <div class="basis-3/4 movie-container rounded-md">
+            <h1 class="mt-9 ml-2 font-['Crimson Text'] text-lg pr-9 ">${movieNameDate}</h1>
+            <h2 class="ml-2 text-base">${movieLength}</h2>
+        </div>
+        <div class="basis-1/4">
+            <img class="rounded-md"src="${movieImage}">
+        </div>
+    </div>`;
+    }
     list.append(movieToAdd);
+    document.querySelectorAll('.xBtn').forEach(btn => {
+        btn.addEventListener("click", removeFromCurrentList, {once: true}); 
+    });
+}
+
+clearBtn.addEventListener('click', () => {
+    if(localStorage.getItem("savedMovies") !== null) {
+        if (confirm("Confirm to remove your entire list!") == true) {
+            localStorage.removeItem("savedMovies");
+            location.reload();
+          } 
+    }
+})
+
+function removeFromCurrentList(e) {
+    let list = JSON.parse(localStorage.getItem("savedMovies"));
+    list.splice(list.indexOf(e.target.id),1);
+    let string = JSON.stringify(list);
+    localStorage.setItem("savedMovies", string)
+    location.reload();
 }
 
 getWatchlist("savedMovies", myWatchList);

@@ -55,13 +55,13 @@ function getInfo(movie, certification) {
     let movieYear = movie.release_date.slice(0,4);
     let movieCert = certification;
     let movieRating = Math.floor(movie.vote_average*10)/10;
-    loadMovie(movieTitle, movieLength, movieImage, movieDesc, currentGenre, movieYear, movieRating + "/10", movieCert);
+    let movieId = movie.id;
+    loadMovie(movieTitle, movieLength, movieImage, movieDesc, currentGenre, movieYear, movieRating + "/10", movieCert, movieId);
 }
 //Resets page when new button is clicked and calls getInfo with movies from genres list
 async function getMovie() {    
     document.querySelector('#row-1').innerHTML='';
     let genresArr = await getGenres();
-    console.log(genresArr);
     genresArr.genres.forEach((genre) => {
         if(genre.name===currentGenre) {
             currentGenreId = genre.id;
@@ -70,14 +70,14 @@ async function getMovie() {
         let response = await getGenreMovsBy(currentGenreId); 
         let movieArr = response.results;
         let i =0;
-        while(i<movieArr.length) {
-            i++;
+        while(i < movieArr.length) {
             let movie = await getMoveBy(movieArr[i].id);
             getInfo(await movie, await getCertification(await movie.id), 'med');
+            i++;
             }
 }
 //Loads movies into html and onto the page
-function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating, movieCert) {
+function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, movieYear, movieRating, movieCert, movieId) {
         document.querySelector(`#row-1`).innerHTML+=
         `<div class="movie-box"> 
             <div id="top-text">
@@ -90,9 +90,12 @@ function loadMovie(movieTitle, movieLength, movieImage, movieDesc, movieGenre, m
             <div class="lg-btns">
                 <button class="lg-btn" id="age-rating" > ${movieCert} </button>
                 <button class="lg-btn" id="review-rating" > ${movieRating} </button>
-                <button class="lg-btn"id="add-list"> Add to list </button>
+                <button class="lg-btn addBtn"id="${movieId}"> Add to list </button>
             </div>
         </div>`
+        document.querySelectorAll('.addBtn').forEach(btn => {
+            btn.addEventListener("click", prependToCurrentList, {once: true}); 
+        });
 }
 //Converts minute length given for movies to hr/min format
 function convert (num) {
@@ -125,5 +128,24 @@ async function getCertification(movId) {
         }
     }
     return 'NR';
+}
+
+function prependToCurrentList(e) {
+    list = JSON.parse(localStorage.getItem("savedMovies"));
+    
+    if(list == null) {
+        list = [e.target.id];
+        let string = JSON.stringify(list);
+        localStorage.setItem("savedMovies", string)
+        console.log("Clicked")
+    } else if(!list.includes(e.target.id)) {
+        listChanged = [e.target.id];
+        for(id in list) {
+            listChanged.push(list[id]);
+        }
+        console.log("Clicked")
+        let string = JSON.stringify(listChanged);
+        localStorage.setItem("savedMovies", string)
+    }
 }
 getMovie();

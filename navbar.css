@@ -1,15 +1,21 @@
-*  {
+/*{
     margin:0px;
     padding:0px;
     box-sizing: border-box;
     font-family: "Crimson Text", serif;
     font-weight: 800;
     font-style: normal;
+    height: 85%;
+}
+  */
+.nav{
+    list-style-type: none;
+    
+
 }
 
 body{
     min-height: 100vh;
-
 
 }
 
@@ -23,6 +29,7 @@ ul li ul.dropdown{
     position: absolute;
     z-index: 999;
     display: none;
+    right: 0px;
 }
 
 ul li a:hover{
@@ -36,15 +43,17 @@ ul li:hover ul.dropdown{
 
 .header{
     position:fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
+    height: 5%;
     width: 100%;
-    padding: 20px 100px;
+    padding: 40px 100px;
     background: #BF8069;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    margin-bottom: 10px;
 }
 
 .navbar a{
@@ -53,14 +62,17 @@ ul li:hover ul.dropdown{
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
-
+    
 }
+
+
 
 .searchbar{
     width: 600px;
     background-color: white;
     border-radius: 10px;
-    padding: 5px;
+    
+    
 }
 
 .searchbar form .input_search{
@@ -81,11 +93,12 @@ ul li:hover ul.dropdown{
 .searchbar form .filter{
     background-color: #8C443E;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    
+    height: 100%;
+    margin-top: 0%;
 }
 
 /* logo bar   */
