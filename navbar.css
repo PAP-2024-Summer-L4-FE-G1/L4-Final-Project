@@ -188,8 +188,3 @@ ul li ul.dropdown a:hover {
     background-color: #BF8069;
 }
 
-/* Additional styling for the main content */
-#row-1 {
-    margin-top: 20px; /* Adjust as needed to avoid overlap with header */
-    padding: 20px;
-}

@@ -8,9 +8,11 @@ body {
   display: flex;
   background-color: #d9c27ea1;
   max-width: 50%;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
+  margin-top: 90px;
+  max-width: 500px;
 } 
 #row-1 {
   display: flex;
@@ -45,7 +47,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position:relative;
-    height: 26em;
+    height: 27em;
     padding-top: 15px;
     display:flexbox;
     flex-shrink: 0;
@@ -74,7 +76,10 @@ body {
     text-align: left;
     margin-left: 15px;
     margin-top: 10px;
-    line-height: 5%;
+    line-height: 5px;
+  }
+  #movie-title {
+    margin-bottom: 5px;
   }
   #movie-length {
     font-size: .9em;
@@ -95,7 +100,7 @@ body {
     background-color: white;
     padding: 10px;
     padding-top: 13px;
-    padding-bottom: 35px;
+    padding-bottom: 43px;
     box-sizing: border-box;
     opacity: 0;
     visibility: hidden;
