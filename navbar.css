@@ -35,7 +35,7 @@ ul li:hover ul.dropdown{
 }
 
 .header{
-    position:fixed;
+    position:relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -44,7 +44,7 @@ ul li:hover ul.dropdown{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    margin-bottom: 10px;
 }
 
 .navbar a{
