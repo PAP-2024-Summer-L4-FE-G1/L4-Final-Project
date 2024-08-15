@@ -313,4 +313,10 @@ background-color: #D9C27E;
 
 
 
-
+.person .dog {
+  width: 120px;
+  margin-bottom: 40px;
+  display: block;
+  position: relative;
+  top: -70px
+}
