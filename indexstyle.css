@@ -31,7 +31,7 @@ p {
     justify-content: right;
     width: 95%;
     margin: auto;
-    margin-top: 6%;
+    margin-bottom: 2%;
     height: 30em;
     position: relative;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ p {
 .lg-btns {
     margin-top: auto;
     padding-right: 25px;
-    padding-bottom: 15px;    
+    padding-bottom: 10px;    
 }
 
 .lg-btn {
@@ -84,7 +84,7 @@ p {
 .lg-btn:hover {
     box-shadow: 0 8px 16px 0 #8C443E;
 }
-.addBtn {
+#add-list {
     position:relative;
     border: none;
     background-color: #8C443E;
