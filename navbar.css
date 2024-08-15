@@ -8,7 +8,7 @@
     font-style: normal;
 }
 
-body {
+#main-body {
     min-height: 100vh;
     margin-top: 85px; /* Adjusted for header height */
 }
@@ -66,7 +66,21 @@ body {
     border-radius: 5px;
 }
 
+ul li ul.dropdown {
+    width: 200px; /* Original width for dropdown */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #8C443E;
+    border-radius: 5px;
+    padding: 10px 0;
+}
 
+ul li:hover ul.dropdown {
+    display: block;
+}
 
 ul li ul.dropdown li {
     padding: 0;
